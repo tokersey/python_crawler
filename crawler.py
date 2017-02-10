@@ -5,9 +5,7 @@ from bs4 import BeautifulSoup
 
 
 def crawler(argv):
-    """
-        Crawler to login to an account and grab some urls
-    """
+    """ Crawler to login to an account and grab some urls """
 
     username = argv[0]
     password = argv[1]
@@ -28,11 +26,7 @@ def crawler(argv):
 
 
 def login(browser, username="", password="", login_url=""):
-    """
-        Login using mechanize
-
-        Docs: http://wwwsearch.sourceforge.net/mechanize/development.html
-    """
+    """ Login using mechanize """
 
     # Open login page
     browser.open(login_url)
@@ -59,12 +53,9 @@ def navigate(browser, url):
     # print browser.response().read()
 
 
-def get_elements(response, user_id):
-    """
-        Get links from webpage using BeautifulSoup
+def get_elements(response, user_id=""):
+    """ Get links from webpage using BeautifulSoup """
 
-        Docs: https://www.crummy.com/software/BeautifulSoup/bs4/doc/
-    """
     soup = BeautifulSoup(response.read(), "html.parser")
 
     # body_tag = soup.body
